@@ -13,6 +13,7 @@ struct BinaryTreeNode {
         right = nullptr;
     }
 };
+
 void preorder(BinaryTreeNode* root) {
 
      if(root == nullptr) {
@@ -23,6 +24,17 @@ void preorder(BinaryTreeNode* root) {
      preorder(root->left);
      preorder(root->right);
 }
+// Only the order of the recursive calls change for pre-order and post-order
+void inorder(BinaryTreeNode* root) {
+    if (root == nullptr){
+        return;
+    }
+    inorder(root->left);
+    cout << root->data << " ";
+    inorder(root->right);
+}
+
+
 
 
 
