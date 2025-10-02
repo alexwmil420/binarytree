@@ -33,7 +33,16 @@ void inorder(BinaryTreeNode* root) {
     cout << root->data << " ";
     inorder(root->right);
 }
+void postorder(BinaryTreeNode* root) {
 
+     if(root == nullptr) {
+         return;
+     }
+     
+     postorder(root->left);
+     postorder(root->right);
+     cout << root->data << " ";
+}
 
 
 
