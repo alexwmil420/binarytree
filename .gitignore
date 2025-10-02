@@ -1,0 +1,8 @@
+main
+*.out
+*.o
+*.exe
+*.log
+DS_Store
+.vscode/
+
