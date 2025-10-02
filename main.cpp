@@ -68,6 +68,49 @@ void levelorder(BinaryTreeNode* root) {
             q.push(current->right);
         }
     }
+// Clean up the tree
+    void freeTree(BinaryTreeNode* root) {
+    if (!root) return;
+    freeTree(root->left);
+    freeTree(root->right);
+    delete root;
+}
+
+int main() {
+    // Build demo tree:
+    //         A
+    //       /   \
+    //      B     C
+    //     / \   /
+    //    D   E F
+
+    BinaryTreeNode* root = new BinaryTreeNode("A");
+    root->left = new BinaryTreeNode("B");
+    root->right = new BinaryTreeNode("C");
+    root->left->left = new BinaryTreeNode("D");
+    root->left->right = new BinaryTreeNode("E");
+    root->right->left = new BinaryTreeNode("F");
+    cout << "In-order:   ";
+    inorder(root);
+    cout << "\n";
+
+    cout << "Pre-order:  ";
+    preorder(root);
+    cout << "\n";
+
+    cout << "Post-order: ";
+    postorder(root);
+    cout << "\n";
+    cout << "Level-order: ";
+    levelorder(root);
+    cout << "\n";
+
+    // Always free dynamically allocated memory
+    freeTree(root);
+
+    return 0;
+}
+
 
 
 
